@@ -1,0 +1,74 @@
+# Configuration for Anomalous Sound Detection
+# DCASE 2023 Challenge - First-shot Unsupervised Anomalous Sound Detection
+
+# Model Selection
+model:
+  type: 'conv_autoencoder'  # Options: 'fc_autoencoder', 'conv_autoencoder', 'lstm_autoencoder', 'lof', 'isolation_forest'
+
+# Audio Processing Parameters
+audio:
+  sample_rate: 16000
+  n_fft: 1024
+  hop_length: 512
+  n_mels: 128
+  normalized: true
+
+# Model Architecture
+architecture:
+  # Fully Connected Autoencoder
+  fc_autoencoder:
+    bottleneck_dim: 512
+
+  # Convolutional Autoencoder
+  conv_autoencoder:
+    enc_flat_dim: [128, 8, 20]  # (channels, height, width) after encoder
+
+  # LSTM Autoencoder
+  lstm_autoencoder:
+    hidden_size: 256
+    num_layers: 2
+
+# Training Hyperparameters
+training:
+  batch_size: 8
+  num_epochs: 50
+  learning_rate: 0.0001
+  patience: 5  # Early stopping patience
+  dropout: 0.3
+
+# Classical ML Parameters
+classical_ml:
+  lof:
+    n_neighbors: 3
+    novelty: true
+
+  isolation_forest:
+    contamination: 0.2
+    random_state: 42
+
+# Evaluation Settings
+evaluation:
+  threshold_metric: 'f1'  # Options: 'f1', 'fbeta', 'balanced', 'intersection'
+  fbeta: 1.0
+  pauc_max_fpr: 0.1  # Calculate pAUC up to 10% FPR (DCASE standard)
+
+# Paths
+paths:
+  data_dir: './data/bearing'
+  train_subdir: 'train'
+  test_subdir: 'test'
+  model_save_dir: './models'
+  results_dir: './results'
+  figures_dir: './results/figures'
+
+# Visualization
+visualization:
+  save_plots: true
+  plot_format: 'png'
+  dpi: 300
+
+# Reproducibility
+seed: 42
+
+# Device
+device: 'cuda'  # Options: 'cuda', 'cpu'

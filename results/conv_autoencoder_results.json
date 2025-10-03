@@ -1,0 +1,7 @@
+{
+  "model_type": "conv_autoencoder",
+  "auc": 0.6579,
+  "pauc": 0.231,
+  "accuracy": 0.6,
+  "optimal_threshold": 0.04985678568482399
+}

@@ -1,0 +1,18 @@
+[project]
+name = "anomalous-sound-detection"
+version = "0.1.0"
+description = "First-shot Unsupervised Anomalous Sound Detection for Machine Condition Monitoring"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=6.30.0",
+    "matplotlib>=3.10.3",
+    "numpy>=2.3.2",
+    "pandas>=2.3.1",
+    "pyyaml>=6.0",
+    "scikit-learn>=1.7.1",
+    "scipy>=1.16.1",
+    "soundfile>=0.13.1",
+    "torch>=2.7.1",
+    "torchaudio>=2.7.1",
+]
