@@ -241,6 +241,7 @@ MIT License
 ## Author
 
 Fabian Toh - AI Apprentice at AI Singapore
+
 Jasper Chew - AI Apprentice at AI Singapore
 
 ## Acknowledgments
